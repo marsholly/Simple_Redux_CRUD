@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
 import uuid from 'uuid';
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
+
+const style = {
+  margin: 12,
+};
 
 export default class TodoForm extends Component {
   constructor() {
@@ -12,6 +18,7 @@ export default class TodoForm extends Component {
     this._onInputChange = this._onInputChange.bind(this);
     this._onSubmit = this._onSubmit.bind(this);
   }
+
 
   _onInputChange(e) {
     let todo = e.target.value;
@@ -31,14 +38,10 @@ export default class TodoForm extends Component {
   render() {
     let todo = this.state.todo;
     return (
-        <div className="input-group">
-          <form onSubmit={this._onSubmit}>
-            <input id="btn-input" type="text" className="form-control input-md" value={this.state.todo} onChange={this._onInputChange}/>
-            <span className="input-group-btn">
-              <button className="btn btn-primary btn-md" id="btn-chat">Submit</button>
-            </span>
-          </form>
-        </div>
+      <form onSubmit={this._onSubmit}>
+        <TextField floatingLabelText="Input Text" floatingLabelFixed={false} value={this.state.todo} onChange={this._onInputChange}/>
+        <RaisedButton label="Primary" primary={true} style={style} type="submit"/>
+      </form>
     )
   }
 }
