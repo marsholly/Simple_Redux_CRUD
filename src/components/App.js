@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 
+import TodoApp from './TodoApp';
+
 export default class App extends Component {
   render() {
     return (
-      <h1 className="text-center">Welcome to React!</h1>
+      <div>
+        <h1 className="text-center">Simple Redux CRUD</h1>
+        <TodoApp />
+      </div>
     )
   }
 }
